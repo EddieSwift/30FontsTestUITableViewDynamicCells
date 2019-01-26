@@ -47,6 +47,10 @@ NSInteger count = 0;
     
     NSArray * fontNames = [UIFont fontNamesForFamilyName:familyName];
     
+    // Amount of Apple fonts
+    count += [fontNames count];
+    NSLog(@"CountCurrentFonts = %lu, CountTotalFonts %ld", (unsigned long)[fontNames count], count);
+    
     return [fontNames count];
 }
 
@@ -80,8 +84,6 @@ NSInteger count = 0;
     
     NSString *familyName = [familyNames objectAtIndex:indexPath.section];
     
-    NSString *currentFamilyName = [familyNames objectAtIndex:indexPath.section];
-    
     NSArray *fontNames = [UIFont fontNamesForFamilyName:familyName];
     
     NSString *fontName = [fontNames objectAtIndex:indexPath.row];
@@ -92,12 +94,6 @@ NSInteger count = 0;
     
     cell.textLabel.font = font;
     
-    if (familyName != currentFamilyName) {
-        
-        count += [fontNames count];
-        NSLog(@"CountCurrentFonts = %lu, CountTotalFonts %ld", (unsigned long)[fontNames count], count);
-    }
-
     
 //    cell.textLabel.text = [NSString stringWithFormat:@"Section = %ld, Row = %ld", (long)indexPath.section, (long)indexPath.row];
     
